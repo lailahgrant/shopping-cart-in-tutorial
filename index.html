@@ -19,6 +19,24 @@
             console.log(array[i]);
         }
 
+        //objects
+        var obj = {name:"Apple", cost:1.99, count:2};
+        console.log(obj);
+        //access the item in an object
+        console.log(obj.name);
+        console.log(obj.cost);
+
+        //use for..in loop to iterate an object
+        for(var key in obj){
+            console.log(key+" "+obj[key]);
+        }
+
+        //use for..in loop to iterate an array too
+        var a = ["A", "B", "C"];
+        for(var j in a){
+            console.log(j+" "+a[j]);
+        }
+
         /*
         console.log(array.length); //number of items in an array
 
