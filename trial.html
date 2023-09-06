@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Tutorial</title>
+</head>
+<body>
+
+    <h1>Shopping Cart</h1>
+    
+    <script>
+        var array=["Apple", "Brush", "Carrot"];
+
+        //add an item to the array
+        array.push("Ducks");
+
+        for(var i=0; i < array.length; i++){
+            console.log(array[i]);
+        }
+
+        //objects
+        var obj = {name:"Apple", cost:1.99, count:2};
+        console.log(obj);
+        //access the item in an object
+        console.log(obj.name);
+        console.log(obj.cost);
+
+        //use for..in loop to iterate an object
+        for(var key in obj){
+            console.log(key+" "+obj[key]);
+        }
+
+        //use for..in loop to iterate an array too
+        var a = ["A", "B", "C"];
+        for(var j in a){
+            console.log(j+" "+a[j]);
+        }
+
+        /*
+        console.log(array.length); //number of items in an array
+
+        array.push("D"); // add an item to the array
+        console.log(array.length); //number of items in an array
+
+        console.log(array); //view the array
+        console.log(array[0]);//view individual array element or item
+        */
+        
+    </script>
+
+</body>
+</html>

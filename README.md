@@ -87,3 +87,6 @@
 >    console.log(j+" "+a[j]);
 >        }
 > </pre>
+> <hr>
+
+## Arrays and Objects
