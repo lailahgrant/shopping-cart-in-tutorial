@@ -37,7 +37,11 @@
         var item = new Item(name, price, count);
         //add an item to a cart
         cart.push(item);
+
+        //save the cart every time there's a change
+        saveCart();
     }
+    /*
     //call function
     addItemToCart("Apple", 1.99, 1);
     addItemToCart("Pear", 2.66, 3);
@@ -50,7 +54,7 @@
     //
     console.log(cart[0]);
     console.log(cart[0].name);
-
+    */
 
     //removeItemFromCart(name) //Removes one Item
     function removeItemFromCart(name){
@@ -71,6 +75,9 @@
                 
             }
         }
+
+        //save the cart every time there's a change
+        saveCart();
     }
 
     /*
@@ -96,8 +103,12 @@
                 break;
             }
         }
+
+        //save the cart every time there's a change
+        saveCart();
     }
 
+    
     //add items
     addItemToCart("Apple", 1.22, 1);
     addItemToCart("Apple", 1.99, 1);
@@ -108,19 +119,24 @@
     addItemToCart("Car", 34.00, 1);
     addItemToCart("Plush Toy", 5.86, 1);
     addItemToCart("Sticky notes", 4.00, 3);
-
+    /*
     console.log(cart.length);
     console.log(cart);
-    
+    */
     removeItemFromCartAll("Car");
+    /*
     console.log(cart.length);
     console.log(cart);
-
+    */
 
 
     //clearCart() - can be used to Empty the cart
     function clearCart(){
         cart=[]; //set the cart to an empty array
+
+        //save the cart every time there's a change
+        saveCart();
+
     }
     
     /*
@@ -185,17 +201,46 @@
         //return cart; //sending a reference of this variable if variable is an Array or Object
     }
 
+    /*
     ////// --- if this fn is used in another file and called
     var array = listCart();
     array[0].name = "Mistake";
     console.log(array); //value at 0 index in this cartCopy will have changed but initial 0 in cart will stay the same
-
+    */
     
 
-    //saveCart()    //localStorage
+    //saveCart()    //save to localStorage (Writing information to localStorage)
+    function saveCart(){
+        //localStorage.setItem("name", value) // give it a name and set its value
+        //localStorage.setItem("shoppingCart", cart); 
+        //convert cart to a string describing the array and objects - use JSON
+        //JSON - good way to write arrays and objects 
+        localStorage.setItem("shoppingCart", JSON.stringify(cart)); //JSON has a method called stringfy() which you pass- A JavaScript value, usually an object or array, to be converted.
+
+    }
+    
+    //localStorage.setItem("username", 'Lailah'); //delete this  since it's already saved in the localStorage
+    //localStorage.setItem("age", 22);
 
 
-    //loadCart()    //loads the cart from localStorage
+
+    //loadCart()    //loads the cart from localStorage (Reading information from the localStorage)
+    function loadCart(){
+        //cart = localStorage.getItem("shoppingCart"); //get a string back - change the string back to the array-object
+        //use JSON's parse() - changes the string back to the array-object
+        cart = JSON.parse(localStorage.getItem("shoppingCart"));
+    }
+
+    //call fn
+    loadCart();
+    /**
+     * To check the loadCart(), remove or comment the first addItemToCart(""), removeItemFromCart() console.log()s, ao that the cart  is empty.
+     * We'll use the information saved in the localStorage to give information for the cart.
+    */
+    // listCart() returns an array containing the cart
+    var array = listCart(); 
+    console.log(array); //Array that has items in it just because it was stored in the LocalStorage and they're retrieved.
+
 
 
     //= : assignment operator

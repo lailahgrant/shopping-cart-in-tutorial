@@ -247,3 +247,38 @@ a) Example with Arrays
 >    console.log(b);// 
 >
 > JS Objects don't have a slice function that allows creating a copy of an object as the arrays.
+
+
+## 13. saveCart()
+> saveCart() - saves the cart information to the LocalStorage or Writing information to localStorage.
+> - It will allow us to pass the cart to different pages. 
+> Grab the cart information
+> 
+> - In js, when a page refreshes or close the browser window - cart information disappears. 
+> JS loses its <b>State</b> when page refreshes or close the browser window
+> - <b>LocalStorage</b> is like a <b>Cookie</b> though it stores more flexible information than a cookie.
+> - LocalStorage is best for strings and numbers. 
+> - LocalStorage saves in a key-value
+> - localStorage.setItem("name", value); // give it a name and set its value
+> - localStorage.setItem("shoppingCart", cart);  //convert cart to a string describing the array and objects - use JSON
+> - JSON - good way to write arrays and objects 
+> - localStorage.setItem("shoppingCart", JSON.stringify(cart)); 
+> - JSON has a method called <b>stringfy()</b> which you pass- A JavaScript value, usually an object or array, to be converted.
+>
+><hr>
+> Example
+> <pre>
+> localStorage.setItem("username", 'Lailah'); //delete this  since it's already saved in the localStorage
+> localStorage.setItem("age", 22);
+
+> </pre>
+
+## 14. loadCart()
+> loadCart() - load the cart information from the localStorage or Reading information from the  localStorage.
+> 
+> - It will allow us to retrieve the cart if you leave the page and come back.
+> - cart = localStorage.getItem("shoppingCart"); //get a string back - change the string back to the array-object
+> - use JSON's parse() - changes the string back to the array-object
+> <pre>
+> cart = JSON.parse(localStorage.getItem("shoppingCart"));
+> </pre>
