@@ -89,12 +89,12 @@
 > </pre>
 > <hr>
 
-## Arrays and Objects
+## 3. Arrays and Objects
 
 
 
 
-## Functions
+## 4. Functions
 > Function is a block of code that can be reused.
 > 
 > - Function can be used to generate an object.
@@ -133,3 +133,7 @@
 >        }
 >        console.log(square(4));
 > </pre>
+>
+> <hr>
+
+
