@@ -137,3 +137,18 @@
 > <hr>
 
 
+## 5. Scope
+> Scope determines where a variable or value is visible.
+>
+> Scope applies to everything e.g. functions,arrays, objects etc
+>
+> Example
+> //passing a variable to 2 or more different scripts
+> <pre>
+>  <script>
+>    var global = "Hello";
+>    </script>
+>    <script>
+>    console.log("Global "+global);
+>    </script> 
+> </pre>
