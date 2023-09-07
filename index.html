@@ -11,30 +11,40 @@
 
     <script>
 
-        //An  object in an array
-        //name  price  count or quantity of items in the cart
-        var cart = [  ];
+    var cart = [];
+    
+    var Item = function(name, price, count){
+        this.name = name
+        this.price = price
+        this.count = count
+    };
 
-        //Item will make item objects for us
-        //Item is a function literal
-        //Item is  a class (capital I) - naming convention
-        var Item = function(name, price, count){
-            //this represents that object(Item), this.name - .name is the property name, =name is the parameter passed in the function(name)
-            this.name = name 
-            this.price = price
-            this.count = count
-        };
+    //addItemToCart(name, price, count)
 
-        //create an object in js
-        //a is the Instance of class (small b)
-        var brush = new Item("Brush", 1.99, 1); //<- this is the same as -> {name:"Brush", price: 1.99, count:1};
-        console.log(brush); //Item {name: 'Brush', price: 1.99, count: 1}
 
-        //create a new object
-        cart.push(new Item("Apple", 2.12, 1));
-        cart.push(brush);
+    //removeItemFromCart(name) //Removes one Item
 
-        console.log(cart);
+
+    //removeItemFromCartAll(name) //removes all item name
+
+
+    //clearCart()
+
+
+    //countCart()   //returns total count
+
+
+    //totalCart()   //returns total cost
+
+
+    //listCart()    //returns array of Item
+
+
+    //saveCart()    //localStorage
+
+
+    //loadCart()    //loads the cart from localStorage
+
 
     </script>
     

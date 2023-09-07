@@ -96,7 +96,7 @@
 
 ## 4. Functions
 > Function is a block of code that can be reused.
-> 
+> // Function names should be descriptive
 > - Function can be used to generate an object.
 > - Function has to be invoked or called in order to execute it
 > <pre>
@@ -184,3 +184,6 @@
 > 
 > </pre>
 >
+
+## 7. Shopping Cart Functions
+>  Function names should be descriptive
