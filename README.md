@@ -90,3 +90,46 @@
 > <hr>
 
 ## Arrays and Objects
+
+
+
+
+## Functions
+> Function is a block of code that can be reused.
+> 
+> - Function can be used to generate an object.
+> - Function has to be invoked or called in order to execute it
+> <pre>
+> function myfunction(){
+>   console.log("hello Lailah");
+> }
+> myfunction();
+> </pre>
+>
+> <hr>
+> 
+> - Functions can take parameters - one and more.
+> <pre>
+> function myfunction(message){
+>   console.log(message);
+> }
+> myfunction("Hello Lailah");
+> </pre>
+>
+> <pre>
+> function myfunction(message, count){
+>  for(var i=0; i < count; i++ ){
+> console.log(message);
+> }
+> }
+> </pre>
+>
+> <hr>
+>
+> <pre>
+> function square(num){
+>    return num*num; 
+>    //console.log(square())//nothing is run after the return statement
+>        }
+>        console.log(square(4));
+> </pre>
