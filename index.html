@@ -11,15 +11,45 @@
 
     <script>
 
-    var cart = [];
+    var cart = []; //an array to hold shopping cart items 
     
+    //an object to represent a shopping cart 
     var Item = function(name, price, count){
         this.name = name
         this.price = price
         this.count = count
     };
 
+
     //addItemToCart(name, price, count)
+    function addItemToCart(name, price, count){
+
+        //code not to duplicate an item with the same name, you just make the item as one and add other items to the count
+        for(var i in cart){
+            if(cart[i].name === name){
+                //cart[i].count++;
+                cart[i].count += count;
+                return; //ends the function
+            }
+        }
+
+        //
+        var item = new Item(name, price, count);
+        //add an item to a cart
+        cart.push(item);
+    }
+    //call function
+    addItemToCart("Apple", 1.99, 1);
+    addItemToCart("Pear", 2.66, 3);
+    addItemToCart("Apple", 1.99, 1);
+    addItemToCart("Apple", 1.99, 3);
+    //display the cart
+    console.log(cart);
+    //array length
+    console.log(cart.length);
+    //
+    console.log(cart[0]);
+    console.log(cart[0].name);
 
 
     //removeItemFromCart(name) //Removes one Item

@@ -186,4 +186,7 @@
 >
 
 ## 7. Shopping Cart Functions
->  Function names should be descriptive
+>  Function names should be descriptive 
+
+
+## 8. addItemToCart()
