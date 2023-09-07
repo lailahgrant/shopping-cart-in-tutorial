@@ -70,6 +70,8 @@
         console.log(square(4));
 
 
+        
+
         /*
         console.log(array.length); //number of items in an array
 
@@ -81,6 +83,40 @@
         */
         
     </script>
+
+    <script>
+        var global = 10;
+
+        function myScope(){
+            var global = "Hello";
+            console.log("Global in fn "+global);
+        }
+
+        myScope();
+
+        console.log("Global out of fn : "+global);
+
+    </script>
+
+    <script>
+        
+    </script>
+
+    
+        <!-- ////// SCOPE
+        // Passing a Global variable btn 2 or more files -->
+        
+    <!-- <script>
+
+    //var global = "Hello";
+
+    //</script>
+
+    //<script>
+
+    //console.log("Global "+global);
+
+    //</script> -->
 
 </body>
 </html>
