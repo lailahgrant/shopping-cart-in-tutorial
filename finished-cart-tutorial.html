@@ -4,70 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <!-- JQuery -->
-
 </head>
 <body>
 
     <h1>Shopping Cart</h1>
 
-    <!-- Things you can buy -->
-    <div>
-        <ul>
-            <li><a class="add-to-cart" href="#" data-name="Apple" data-price="1.22">Apple $1.22</a></li>
-            <li><a class="add-to-cart" href="#" data-name="Banana" data-price="1.33">Banana $1.33</a></li> 
-            <li><a class="add-to-cart" href="#" data-name="Shoe" data-price="22.33">Shoe $22.33</a></li> 
-            <li><a class="add-to-cart" href="#" data-name="Juice" data-price="5.22">Juice $5.22</a></li>  
-        </ul>
-        <button id="clear-cart">Clear Cart</button>
-    </div>
-
-    <div>
-        <ul id="show-cart">
-            <!-- a) listCart()  b) All items in the cart  c) cart filled with things you want to buy -->
-        </ul>
-    </div>
-
     <script>
-
-        /**
-         * JQuery
-        */
-        $(".add-to-cart").click(function(event){
-            event.preventDefault(); //cancel the default of links
-
-            var name = $(this).attr("data-name");
-            var price = Number($(this).attr("data-price"));
-
-            //addItemToCart()
-            addItemToCart(name, price, 1);
-            displayCart(); //call this every time we add an item, click a button and 
-
-        });
-
-        // displayCart()
-        function displayCart(){
-            console.log("*** Display Cart ***");
-
-            var cartArray = listCart();
-            console.log("*** Count Cart : "+cartArray.length);
-
-            var output = "";
-
-            for(var i in cartArray){
-                output += "<li>"+cartArray[i].name+ " "+cartArray[i].count+"</li>";
-            }
-            $("#show-cart").html(output);
-
-        }
-
-        displayCart();
-
-
-        /**
-         * ==========================================================
-         * Shopping Cart functions
-        */
 
     var cart = []; //an array to hold shopping cart items 
     
@@ -99,18 +41,34 @@
         //save the cart every time there's a change
         saveCart();
     }
-
+    /*
+    //call function
+    addItemToCart("Apple", 1.99, 1);
+    addItemToCart("Pear", 2.66, 3);
+    addItemToCart("Apple", 1.99, 1);
+    addItemToCart("Apple", 1.99, 3);
+    //display the cart
+    console.log(cart);
+    //array length
+    console.log(cart.length);
+    //
+    console.log(cart[0]);
+    console.log(cart[0].name);
+    */
 
     //removeItemFromCart(name) //Removes one Item
     function removeItemFromCart(name){
         // for..in loop
         for(var i in cart){
             if(cart[i].name === name){
-                cart[i].count --; 
+                cart[i].count --; //set value of the count as  cart[i].count -=1; | cart[i].count= cart[i].count-1;
                 
+                //if an item is removed and it gives a -1, do the following
                 if(cart[i].count === 0){
-                    
-                    cart.splice(i, 1); 
+                    //name of the item should be removed if there are no items of that name
+                    //use splice(index, number you want to remove) //index - position
+                    cart.splice(i, 1); //removes the first item
+                    //cart.splice(i, ) //splice() - can be used to remove or add items
                 }
 
                 break;
@@ -122,7 +80,20 @@
         saveCart();
     }
 
-    
+    /*
+    console.log(cart[0].count); //5
+    removeItemFromCart("Apple"); //removes one Apple
+    console.log(cart[0].count); //4
+    //remove more Apples
+    removeItemFromCart("Apple");
+    removeItemFromCart("Apple");
+    removeItemFromCart("Apple");
+    removeItemFromCart("Apple");
+    removeItemFromCart("Apple");
+    console.log(cart[0].count);//-1
+
+    console.log(cart);
+    */
 
     //removeItemFromCartAll(name) //removes all item name
     function removeItemFromCartAll(name){
@@ -148,9 +119,15 @@
     addItemToCart("Car", 34.00, 1);
     addItemToCart("Plush Toy", 5.86, 1);
     addItemToCart("Sticky notes", 4.00, 3);
-    
+    /*
+    console.log(cart.length);
+    console.log(cart);
+    */
     removeItemFromCartAll("Car");
-    
+    /*
+    console.log(cart.length);
+    console.log(cart);
+    */
 
 
     //clearCart() - can be used to Empty the cart
@@ -162,6 +139,12 @@
 
     }
     
+    /*
+    //call fn
+    clearCart();
+    console.log(cart);
+    */
+
 
 
     //countCart()   //returns total count - total number of items in the cart
@@ -215,30 +198,54 @@
         //after looping, we return the cartCopy
         return cartCopy;
 
+        //return cart; //sending a reference of this variable if variable is an Array or Object
     }
 
+    /*
+    ////// --- if this fn is used in another file and called
+    var array = listCart();
+    array[0].name = "Mistake";
+    console.log(array); //value at 0 index in this cartCopy will have changed but initial 0 in cart will stay the same
+    */
+    
 
     //saveCart()    //save to localStorage (Writing information to localStorage)
     function saveCart(){
-        
+        //localStorage.setItem("name", value) // give it a name and set its value
+        //localStorage.setItem("shoppingCart", cart); 
+        //convert cart to a string describing the array and objects - use JSON
+        //JSON - good way to write arrays and objects 
         localStorage.setItem("shoppingCart", JSON.stringify(cart)); //JSON has a method called stringfy() which you pass- A JavaScript value, usually an object or array, to be converted.
 
     }
     
+    //localStorage.setItem("username", 'Lailah'); //delete this  since it's already saved in the localStorage
+    //localStorage.setItem("age", 22);
+
 
 
     //loadCart()    //loads the cart from localStorage (Reading information from the localStorage)
     function loadCart(){
-        
+        //cart = localStorage.getItem("shoppingCart"); //get a string back - change the string back to the array-object
+        //use JSON's parse() - changes the string back to the array-object
         cart = JSON.parse(localStorage.getItem("shoppingCart"));
     }
 
     //call fn
     loadCart();
-    
+    /**
+     * To check the loadCart(), remove or comment the first addItemToCart(""), removeItemFromCart() console.log()s, ao that the cart  is empty.
+     * We'll use the information saved in the localStorage to give information for the cart.
+    */
     // listCart() returns an array containing the cart
     var array = listCart(); 
     console.log(array); //Array that has items in it just because it was stored in the LocalStorage and they're retrieved.
+
+
+
+    //= : assignment operator
+                //== : comparison (LH is equal to RH) e.g. "3" == 3 is true (doesn't consider datatypes)
+                //=== : comparison and it checks for datatype too.
 
     </script>
     

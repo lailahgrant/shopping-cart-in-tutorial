@@ -282,3 +282,6 @@ a) Example with Arrays
 > <pre>
 > cart = JSON.parse(localStorage.getItem("shoppingCart"));
 > </pre>
+
+## 15. displayCart()
+>
