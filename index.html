@@ -117,13 +117,45 @@
     console.log(cart);
 
 
-    //clearCart()
+
+    //clearCart() - can be used to Empty the cart
+    function clearCart(){
+        cart=[]; //set the cart to an empty array
+    }
+    
+    /*
+    //call fn
+    clearCart();
+    console.log(cart);
+    */
 
 
-    //countCart()   //returns total count
+
+    //countCart()   //returns total count - total number of items in the cart
+    function countCart(){
+        var totalCount =0;
+        for(var i in cart){
+
+            //it gives the sum of all items in the cart (using the count value e.g. Apples are 5, Pears are 4 :. countCart is 9(the total of all items in the cart))
+            totalCount += cart[i].count;
+        }
+        return totalCount; //calling a fn
+    }
+    
+    console.log(countCart());
 
 
     //totalCart()   //returns total cost
+    function totalCart(){
+        var totalCost = 0;
+        for(var i in cart) {
+            totalCost += cart[i].price; //price total of all the item
+        }
+        return totalCost;
+    }
+
+    console.log(totalCart());
+
 
 
     //listCart()    //returns array of Item

@@ -200,4 +200,20 @@
 
 ## 10. removeItemFromCartAll() 
 > //removeItemFromCartAll(name) //removes all item name
-> can be used to delete the cart or empty cart
+> can be used to delete items in a cart.
+>
+
+## 11. a) clearCart()
+> can be used to Empty cart
+>
+
+## 11. b) countCart()   
+> returns total count
+> it returns the value - total number of items in the cart
+>
+
+## 11. c) totalCart()   
+> returns total cost
+>
+
+
