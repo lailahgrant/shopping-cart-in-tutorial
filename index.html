@@ -62,7 +62,7 @@
                 //if an item is removed and it gives a -1, do the following
                 if(cart[i].count === 0){
                     //name of the item should be removed if there are no items of that name
-                    //use splice(index, number you want to remove)
+                    //use splice(index, number you want to remove) //index - position
                     cart.splice(i, 1); //removes the first item
                     //cart.splice(i, ) //splice() - can be used to remove or add items
                 }
@@ -73,6 +73,7 @@
         }
     }
 
+    /*
     console.log(cart[0].count); //5
     removeItemFromCart("Apple"); //removes one Apple
     console.log(cart[0].count); //4
@@ -85,9 +86,35 @@
     console.log(cart[0].count);//-1
 
     console.log(cart);
-
+    */
 
     //removeItemFromCartAll(name) //removes all item name
+    function removeItemFromCartAll(name){
+        for(var i in cart){
+            if(cart[i].name === name){
+                cart.splice(i, 1);
+                break;
+            }
+        }
+    }
+
+    //add items
+    addItemToCart("Apple", 1.22, 1);
+    addItemToCart("Apple", 1.99, 1);
+    addItemToCart("Pear", 2.66, 3);
+    addItemToCart("Apple", 1.99, 1);
+    addItemToCart("Apple", 1.99, 3);
+    addItemToCart("Banana", 1.00, 1);
+    addItemToCart("Car", 34.00, 1);
+    addItemToCart("Plush Toy", 5.86, 1);
+    addItemToCart("Sticky notes", 4.00, 3);
+
+    console.log(cart.length);
+    console.log(cart);
+    
+    removeItemFromCartAll("Car");
+    console.log(cart.length);
+    console.log(cart);
 
 
     //clearCart()
