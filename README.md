@@ -216,4 +216,34 @@
 > returns total cost
 >
 
+## 12. listCart()    
 
+> listCart()  - returns array of Items
+> - Arrays and Objects don't send a copy  but a reference 
+> - Arrays and Objects are always a reference.
+> - Can make a copy from a reference in an array by using a <b>slice()</b>.
+
+a) Example with Arrays
+> <pre> 
+> /*
+> Arrays and Objects don't send a copy  but a reference 
+> */
+> 
+>    var  a = ["A", "B", "C"];
+>    //to copy an array & not use the reference - use slice()
+>    //var b=a; // passing a reference (saved on computer memory), if used else where, it will give you the same reference value
+>    var b= a.slice(); //slice() gives b a copy of  items in a.
+>    b.push("D");
+>    console.log(a); //(3) ['A', 'B', 'C']
+>    console.log(b); //(4) ['A', 'B', 'C', 'D']
+></pre> 
+>
+
+- b) Example with objects
+> var a = {name:"Lailah", age:23 };
+>    var b = a; //setting new value (b) as a pointer to the original object 
+>    b.name ="Loyce";
+>    console.log(a); //
+>    console.log(b);// 
+>
+> JS Objects don't have a slice function that allows creating a copy of an object as the arrays.

@@ -159,7 +159,38 @@
 
 
     //listCart()    //returns array of Item
+    function listCart(){
 
+        //create a copy 
+        var cartCopy = [];
+        //loop through every item in a cart and with every loop, create a variable called item (which is the item in the cart)
+        for(var i in cart){
+            var item = cart[i];
+            //create an itemCopy
+            var itemCopy = {};
+
+            //for to loop through every item in an array and a property in every object
+            for(var p in item){ //p for property
+                //set p as a property with the same name as the itemCopy as item
+                itemCopy[p] = item[p];
+            }
+            //
+            cartCopy.push(itemCopy)
+
+        }
+
+        //after looping, we return the cartCopy
+        return cartCopy;
+
+        //return cart; //sending a reference of this variable if variable is an Array or Object
+    }
+
+    ////// --- if this fn is used in another file and called
+    var array = listCart();
+    array[0].name = "Mistake";
+    console.log(array); //value at 0 index in this cartCopy will have changed but initial 0 in cart will stay the same
+
+    
 
     //saveCart()    //localStorage
 
