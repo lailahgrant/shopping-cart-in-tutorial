@@ -53,6 +53,38 @@
 
 
     //removeItemFromCart(name) //Removes one Item
+    function removeItemFromCart(name){
+        // for..in loop
+        for(var i in cart){
+            if(cart[i].name === name){
+                cart[i].count --; //set value of the count as  cart[i].count -=1; | cart[i].count= cart[i].count-1;
+                
+                //if an item is removed and it gives a -1, do the following
+                if(cart[i].count === 0){
+                    //name of the item should be removed if there are no items of that name
+                    //use splice(index, number you want to remove)
+                    cart.splice(i, 1); //removes the first item
+                    //cart.splice(i, ) //splice() - can be used to remove or add items
+                }
+
+                break;
+                
+            }
+        }
+    }
+
+    console.log(cart[0].count); //5
+    removeItemFromCart("Apple"); //removes one Apple
+    console.log(cart[0].count); //4
+    //remove more Apples
+    removeItemFromCart("Apple");
+    removeItemFromCart("Apple");
+    removeItemFromCart("Apple");
+    removeItemFromCart("Apple");
+    removeItemFromCart("Apple");
+    console.log(cart[0].count);//-1
+
+    console.log(cart);
 
 
     //removeItemFromCartAll(name) //removes all item name
@@ -75,6 +107,10 @@
 
     //loadCart()    //loads the cart from localStorage
 
+
+    //= : assignment operator
+                //== : comparison (LH is equal to RH) e.g. "3" == 3 is true (doesn't consider datatypes)
+                //=== : comparison and it checks for datatype too.
 
     </script>
     

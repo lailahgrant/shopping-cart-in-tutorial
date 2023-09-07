@@ -190,3 +190,14 @@
 
 
 ## 8. addItemToCart()
+
+
+## 9. removeItemFromCart() 
+> removeItemFromCart(name) //Removes one Item
+>
+> Can be used for <b>decrement</b> or <b>-</b> button on a cart.
+
+
+## 10. removeItemFromCartAll() 
+> //removeItemFromCartAll(name) //removes all item name
+> can be used to delete the cart or empty cart
